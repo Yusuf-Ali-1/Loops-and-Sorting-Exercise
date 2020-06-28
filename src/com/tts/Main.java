@@ -1,12 +1,44 @@
 package com.tts;
 
 
+
 import java.util.Random;
 
-public class Main {
+public class Main
+{
+    public static void bubble_sort( int[] a )
+    {
+        // Your code goes here
+        boolean keep_sort = true;
+        int j = 0;
 
-    public static void main(String[] args) {
+        while ( keep_sort )
+        {
+            keep_sort = false;
+            j++;
+            for ( int i = 0; i < a.length - j; i++ )
+            {
+                if ( a[i] > a[i + 1] )
+                {
+                    swap( a, i, i + 1 );
+                    keep_sort = true;
+                }
+            }
+        }
+    }
 
+
+    public static void swap( int[] a , int i, int j )
+    {
+        // Your code goes here
+        int temp = a[i];
+        a[i] = a[j];
+        a[j] = temp;
+    }
+
+
+    public static void main( String[] args )
+    {
         Random r = new Random();
         int[] arr = new int[10];
         int i;
@@ -22,7 +54,7 @@ public class Main {
         System.out.println();
 
         // Sort it
-        // bubble_sort( arr );
+        bubble_sort( arr );
 
         // Display it again to confirm that it's sorted
         System.out.print("after : ");
@@ -30,26 +62,8 @@ public class Main {
             System.out.print( arr[i] + " " );
         System.out.println();
     }
-        public static void bubble_sort( int[] a )
-        {
-
-            for (int i = 0; i < n-1; i++)
-                for (int j = 0; j < n-i-1; j++)
-                    if (arr[j] > arr[j+1])
-                    {
-                        // swap arr[j+1] and arr[i]
-                        int temp = arr[j];
-                        arr[j] = arr[j+1];
-                        arr[j+1] = temp;
-                    }
-        }
-
-
-        public static void swap( int[] a , int i, int j ){
-
-
-                    }
 }
+
 
 
 
